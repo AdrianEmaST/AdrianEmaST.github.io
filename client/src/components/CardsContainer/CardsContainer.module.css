@@ -1,0 +1,12 @@
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-gap: 10px; /* Espacio entre tarjetas */
+  margin-left: 5px; /* Margen izquierdo reducido */
+  margin-right: 5px; /* Margen derecho reducido */
+}
+
+.card {
+  width: 100px; /* Ajusta el ancho según tus necesidades */
+  margin-bottom: 10px; /* Espacio entre tarjetas */
+}

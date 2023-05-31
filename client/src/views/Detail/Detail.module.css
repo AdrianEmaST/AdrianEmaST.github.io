@@ -1,0 +1,150 @@
+.mainimage {
+  margin-top: 50px;
+  display: inline-flex;
+  flex-direction: column;
+  width: 500px;
+  height: 355px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  -webkit-box-shadow: 0px 0px 49px 18px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 49px 18px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 49px 18px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.nameandtype {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 230px;
+  margin-right: 10px;
+  padding-bottom: 50px;
+  bottom: 125px;
+  left: 140px;
+  margin-left: 105px;
+}
+.image {
+  width: 150px;
+  display: flex;
+  margin-top: 40px;
+  margin-left: 50px;
+  min-width: 150px;
+  height: 150px;
+}
+.conteinattackhp {
+  position: relative;
+  bottom: 140px;
+  left: 100px;
+}
+.info {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  position: relative;
+  padding-left: 20%;
+  justify-content: center;
+  align-items: center;
+  bottom: 130px;
+}
+
+.btn {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: none;
+  position: relative;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 1px 5px 0.2px #00000035;
+  box-shadow: 1px 1px 5px 0.2px #00000035;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  transition-delay: 0.2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: space-between;
+}
+.btn:hover {
+  width: 150px;
+  transition-delay: 0.2s;
+}
+.btn:hover > .paragraph {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+.btn:hover > .icon-wrapper .icon {
+  transform: scale(1.1);
+}
+.bnt:hover > .icon-wrapper .icon path {
+  stroke: black;
+}
+.paragraph {
+  color: black;
+  visibility: hidden;
+  opacity: 0;
+  margin-right: 20px;
+  padding-left: 20px;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.containtbutton {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 50px;
+}
+.iconwrapper {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.editbtn {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: none;
+  position: relative;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 1px 5px 0.2px #00000035;
+  box-shadow: 1px 1px 5px 0.2px #00000035;
+  align-items: center;
+  justify-content: space-between;
+}
+.editbtn:hover {
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.typeIcons {
+  display: flex;
+  justify-content: center;
+}
+
+.typeIcon {
+  width: 80px; /* Ajusta el tamaño del icono según tus preferencias */
+  height: 80px; /* Ajusta el tamaño del icono según tus preferencias */
+  margin: 0 5px; /* Ajusta el espacio entre los iconos según tus preferencias */
+}

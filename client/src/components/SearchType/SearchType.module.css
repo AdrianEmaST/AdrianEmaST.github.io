@@ -1,0 +1,25 @@
+.main {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #058ca0;
+    border-radius: 20px;
+    -webkit-box-shadow: 2px 3px 29px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 3px 29px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 3px 29px 3px rgba(0, 0, 0, 0.75);
+  }
+  .icon {
+    width: 80px;
+    border: none;
+  }
+  .button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    width: auto;
+  }
+  .selected {
+    border-radius: 50%;
+    -webkit-box-shadow: 10px 10px 42px -6px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 10px 10px 42px -6px rgba(255, 255, 255, 1);
+    box-shadow: 10px 10px 42px -6px rgba(255, 255, 255, 1);
+  }
