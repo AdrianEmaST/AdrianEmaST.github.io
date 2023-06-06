@@ -12,6 +12,7 @@ export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const DELETE_POKEMON = "DELETE_POKEMON";
 
+
 export const getPokemons = () => {
   return async function (dispatch) {
     const apiData = await axios.get("http://localhost:3001/pokemons");

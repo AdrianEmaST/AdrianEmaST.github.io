@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { getPokemonName } from "../../redux/actions";
 import s from "./SearchBar.module.css";
 
+
 export default function SearchBar() {
   const dispatch = useDispatch();
   const [name, setName] = useState("")
@@ -26,6 +27,7 @@ export default function SearchBar() {
         placeholder="Buscar pokemon..."
       />
       <button className ={s.boton} type="submit" onClick= {(e) => handleSubmit(e)}> Buscar </button>
+      
     </div>
   );
 }

@@ -25,16 +25,16 @@ const Filter = () => {
 
   return (
     <div className={style.container}>
-      <button onClick={clickHanlderApi}>Filter Api</button>
-      <button onClick={clickHanlderDb}>Filter Create</button>
-      <button value="desc" onClick={clickHandlerAttack}>
+      <button className={style.button} onClick={clickHanlderApi}>Filter Api</button>
+      <button className={style.button} onClick={clickHanlderDb}>Filter Create</button>
+      <button className={style.button} value="desc" onClick={clickHandlerAttack}>
         -ATCK
       </button>
-      <button value="asc" onClick={clickHandlerAttack}>
+      <button className={style.button} value="asc" onClick={clickHandlerAttack}>
         +ATCK
       </button>
-      <button value="asc" onClick={clickHandlerName}>A-Z</button>
-      <button value="desc" onClick={clickHandlerName}>Z-A</button>
+      <button className={style.button} value="asc" onClick={clickHandlerName}>A-Z</button>
+      <button  className={style.button}value="desc" onClick={clickHandlerName}>Z-A</button>
     </div>
   );
 };

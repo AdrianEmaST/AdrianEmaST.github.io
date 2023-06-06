@@ -6,7 +6,7 @@ const urlApiTypes = `https://pokeapi.co/api/v2/type`;
 
 const getApiInfo = async () => {
   //funcion asincrona ?limit=2
-  const apiUrl = await axios.get(urlApiPokemon + `?limit=100`); //obtengo el array results: [{name + url de los primeros 40}]
+  const apiUrl = await axios.get(urlApiPokemon + `?limit=24`); //obtengo el array results: [{name + url de los primeros 40}]
   const pokeUrl = []; // uso este array para poner la url de cada pokemon despues de realizar el foreach
   apiUrl.data.results.forEach((el) => {
     pokeUrl.push(axios.get(el.url).then((resp) => resp.data)); //pusheo el contenido de la url de c/pokemon(obj {name, id, img, etc})
@@ -19,7 +19,7 @@ const getApiInfo = async () => {
         return {
           id: p.id,
           name: p.name,
-          img: p.sprites.other.dream_world.front_default,
+          img: p.sprites.versions["generation-v"]["black-white"].animated.front_default,
           type: p.types.map((el) => el.type.name),
           health: p.stats[0].base_stat,
           attack: p.stats[1].base_stat,
@@ -39,7 +39,8 @@ const getIdApi = async (id) => {
       id: apiUrl.data.id,
       name: apiUrl.data.name,
       type: apiUrl.data.types.map((el) => el.type.name),
-      img: apiUrl.data.sprites.other.dream_world.front_default,
+      img: apiUrl.data.sprites.versions["generation-v"]["black-white"].animated
+      .front_default,
       hp: apiUrl.data.stats[0].base_stat,
       attack: apiUrl.data.stats[1].base_stat,
       defense: apiUrl.data.stats[2].base_stat,
@@ -77,27 +78,16 @@ const getTypesApi = async () => {
     let existingType = await Type.findOne({ where: { name: type.name } }); // lo que hago aca es buscar si ya tengo un type con tal nombre lo guardo en vez de crear otro para evitar pisar el id
     if (existingType) {
       typeNames.push(existingType);
-    } else {
+    } /*else {
       const newType = await Type.create({
         name: type.name,
       });
       typeNames.push(newType);
-    }
+    }*/
   }
   return typeNames;
 };
-// const getTypesApi = async () => {
-//   const response = await axios.get(urlApiTypes);
-//   const types = response.data.results;
-//   const typeNames = [];
-//   for (let type of types) {
-//     const newType = await Type.create({
-//       name: type.name,
-//     });
-//     typeNames.push(newType);
-//   }
-//   return typeNames;
-// };
+
 const serchType = async (types) => {
   const typ = await Type.findAll({
     where: { name: types },

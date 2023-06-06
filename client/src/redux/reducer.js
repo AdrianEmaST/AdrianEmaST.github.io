@@ -63,22 +63,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         pokemonFilter: state.pokemons.filter((p) => typeof p.id === "number"),
       };
-    case ORDER_BY_ATTACK:
-      // if (action.payload === "asc") {
-      //   return {
-      //     ...state,
-      //     pokemonFilter: state.pokemons.slice().sort((a, b) => {
-      //       return b.attack - a.attack;
-      //     }),
-      //   };
-      // } else if (action.payload === "desc") {
-      //   return {
-      //     ...state,
-      //     pokemonFilter: state.pokemons.slice().sort((a, b) => {
-      //       return a.attack - b.attack;
-      //     }),
-      //   };
-      // }
+    case ORDER_BY_ATTACK: 
       const orderAttack =
         action.payload === "asc"
           ? state.pokemons.slice().sort((a, b) => {
@@ -91,6 +76,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         pokemonFilter: orderAttack,
       };
+
     case ORDER_BY_NAME:
       const order =
         action.payload === "asc"

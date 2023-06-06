@@ -8,8 +8,6 @@ const NavBar = () =>{
     return(
         <div className={s.mainContainer}>
             <Link to='/home'>HOME</Link>
-            <SearchBar />
-            <Filter />
             <Link to='/create'>CREATE POKEMON</Link>
         </div>
     )

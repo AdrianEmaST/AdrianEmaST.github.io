@@ -8,7 +8,7 @@ const {
   getIdApi,
   deletePokemon,
   updatePokemon,
-} = require("../Controllers/Controllers.js");
+} = require("../controllers/Controllers.js");
 
 const createPokemonHandler = async (req, res) => {
   const { name, img, type, hp, attack, defense, speed, height, weight } =

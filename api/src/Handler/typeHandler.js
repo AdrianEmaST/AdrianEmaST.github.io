@@ -1,4 +1,4 @@
-const {getTypesApi} = require("../Controllers/Controllers.js")
+const {getTypesApi} = require("../controllers/Controllers.js")
 
 const getTypeHandler = async (req,res) =>{
     try {

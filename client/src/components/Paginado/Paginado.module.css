@@ -1,85 +1,89 @@
 .paginado {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .paginado__button {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    color: #333;
-    padding: 10px 15px;
-    margin: 0 5px;
-    cursor: pointer;
-  }
-  
-  .paginado__button--disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-  
-  @media (max-width: 768px) {
-    .paginado {
-      flex-wrap: wrap;
-    }
-  
-    .paginado__button {
-      margin: 5px;
-    }
-  }
-  
-  
-  .card {
-    width: 200px;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-  }
-  
-  .card__image {
-    width: 100%;
-  }
-  
-  .card__name {
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .card__types {
-    margin-top: 5px;
-  }
-  
-  .card__types img {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-  }
-  
-  .card__types span {
-    margin-right: 5px;
-  }
-  
-  .card__types span:last-child {
-    margin-right: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.paginado__button {
+  margin-right: 10px;
+  margin: 5px;
+  margin-bottom: 10px;
+  width: 105px;
+  height: 40px;
+  border: #95CAB2;
+  background: #95CAB2;
+  outline: none;
+  transition-duration: 0.4s;
+  font-weight: bolder;
+  color: #215756; /* Cambia el color del texto a blanco */
+  white-space: nowrap; /* Evita que el texto se ajuste automáticamente y se mantenga en una línea */
+  overflow: hidden; /* Oculta el texto adicional si excede el ancho del botón */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos (...) si el texto se recorta */
+}
+
+.paginado__button--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .paginado {
+    flex-wrap: wrap;
   }
 
-  
-  
-  .loading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 230px;
-    
+  .paginado__button {
+    margin: 5px;
   }
-  
-  .loading img {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .loading p {
-    margin-top: 10px;
-  }
+}
+
+.card {
+  width: 200px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.card__name {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.card__types {
+  margin-top: 5px;
+}
+
+.card__types img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.card__types span {
+  margin-right: 5px;
+}
+
+.card__types span:last-child {
+  margin-right: 0;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 230px;
+}
+
+.loading img {
+  width: 80px;
+  height: 80px;
+}
+
+.loading p {
+  margin-top: 10px;
+}

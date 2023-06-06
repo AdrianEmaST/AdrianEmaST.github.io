@@ -62,14 +62,12 @@ const Paginado = () => {
             <button
               className={s.paginado__button}
               onClick={handlePreviousPage}
-              disabled={currentPage === 1}
             >
               Previous
             </button>
             <button
               className={s.paginado__button}
               onClick={handleNextPage}
-              disabled={currentPage === totalPages}
             >
               Next
             </button>

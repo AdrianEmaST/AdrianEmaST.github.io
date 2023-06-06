@@ -32,50 +32,27 @@ const SearchType = () => {
   const [secondType, setSecondType] = useState(""); // fuego
   const [selectedTypes, setSelectedTypes] = useState([]);
 
-  const typeIcons = (type) => {
-    switch (type) {
-      case "fire":
-        return Fire;
-      case "water":
-        return Water;
-      case "bug":
-        return Bug;
-      case "dark":
-        return Dark;
-      case "dragon":
-        return Dragon;
-      case "electric":
-        return Electric;
-      case "fairy":
-        return Fairy;
-      case "fighting":
-        return Fighting;
-      case "flying":
-        return Flying;
-      case "ghost":
-        return Ghost;
-      case "grass":
-        return Grass;
-      case "ground":
-        return Ground;
-      case "ice":
-        return Ice;
-      case "poison":
-        return Poison;
-      case "psychic":
-        return Psychic;
-      case "rock":
-        return Rock;
-      case "shadow":
-        return Shadow;
-      case "steel":
-        return Steel;
-      case "unknown":
-        return Unknown;
-      // Agrega más casos para los demás tipos de Pokémon
-      default:
-        return Normal; // Opcional: puedes establecer un icono de tipo predeterminado o null para los tipos desconocidos
-    }
+  const typeIcons = {
+    normal: Normal,
+    fighting: Fighting,
+    flying: Flying,
+    poison: Poison,
+    ground: Ground,
+    rock: Rock,
+    bug: Bug,
+    ghost: Ghost,
+    steel: Steel,
+    fire: Fire,
+    water: Water,
+    grass: Grass,
+    electric: Electric,
+    psychic: Psychic,
+    ice: Ice,
+    dragon: Dragon,
+    dark: Dark,
+    fairy: Fairy,
+    unknown: Unknown,
+    shadow: Shadow,
   };
   useEffect(() => {
     dispatch(getTypes());
@@ -112,6 +89,7 @@ const SearchType = () => {
           return (
             <button
               key={type.id}
+              title={type.name}
               className={style.button}
               value={type.name}
               onClick={() => handleTypeSelection(type.name)}
@@ -121,7 +99,7 @@ const SearchType = () => {
                 src={typeIcons[type.name]}
                 alt={type.name}
               />
-              <p>{type.name}</p>
+              
             </button>
           );
           //Dentro de la función handleTypeSelection, se están actualizando los estados firstType y secondType con los valores correspondientes, lo cual permite realizar la búsqueda con los dos tipos seleccionados.

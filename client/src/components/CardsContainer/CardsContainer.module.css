@@ -1,12 +1,13 @@
 .cardsContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  grid-gap: 10px; /* Espacio entre tarjetas */
-  margin-left: 5px; /* Margen izquierdo reducido */
-  margin-right: 5px; /* Margen derecho reducido */
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en varias filas en pantallas más pequeñas */
+  justify-content: center; /* Centra las tarjetas horizontalmente dentro del contenedor */
+  grid-gap: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .card {
-  width: 100px; /* Ajusta el ancho según tus necesidades */
-  margin-bottom: 10px; /* Espacio entre tarjetas */
+  width: 100px;
+  margin-bottom: 10px;
 }

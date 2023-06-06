@@ -1,0 +1,37 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #95CAB2;
+  padding: 30px;
+  justify-content: center; /* Centra verticalmente el contenido */
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center; /* Alinea los iconos verticalmente en el centro */
+  gap: 10px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.app {
+  margin-right: 150px; /* Separación derecha */
+}
+
+.copyright{
+  margin-left: 150px; /* Separación derecha */
+}
+
+.footer p:nth-child(2) {
+  margin-left: auto; /* Alinea el texto "All rights reserved" a la izquierda */
+}
+
+.footer p:nth-child(3) {
+  margin-right: auto; /* Alinea el texto "AppPokemon" a la derecha */
+}

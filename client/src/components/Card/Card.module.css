@@ -1,9 +1,11 @@
 .card {
-  width: 150px;
-  height: 200px;
-  background-color: #f2f2f2;
+  width: 100px;
+  height: 145px;
+  background-color: #D6EEE3;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-color: rgba(33, 130, 85, 0.5); /* Cambia el valor del color con opacidad */
+  border-width: 2px;
+  border-style: solid;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,8 +15,8 @@
 }
 
 .card img {
-  width: 120px;
-  height: 120px;
+  width: 60px;
+  height: 60px;
   margin-bottom: 10px;
 }
 
@@ -71,5 +73,5 @@
 .card .typeIcon {
   width: 30px; /* Ajusta el tamaño del icono según tus preferencias */
   height: 30px; /* Ajusta el tamaño del icono según tus preferencias */
-  margin: 0 5px; /* Ajusta el espacio entre los iconos según tus preferencias */
+  margin: 0px 5px 5px 5px; /* Ajusta el espacio entre los iconos según tus preferencias */
 }

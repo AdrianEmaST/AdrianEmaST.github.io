@@ -2,23 +2,27 @@
     border-radius: 5px;
     padding: 10px 15px 10px 15px;
     background-color: #eeeeee;
-    border: 1px solid rgb(212, 175, 255);
+    border: 1px solid #2B7271;
     margin-top: 10px;
     display: inline;
     outline: none;
 }
 
-.boton{ 
+.boton {
     margin-right: 10px;
-    margin: 2px;
+    margin: 5px;
     margin-bottom: 10px;
-    width: 65px;
-    height: 37px;
-    background: rgba(242, 215, 255, 0.89);
+    width: 105px;
+    height: 40px;
+    background: #2B7271;
     border-radius: 5px;
     outline: none;
-    transition-duration: 0.4s
-}
+    transition-duration: 0.4s;
+    color: white; /* Cambia el color del texto a blanco */
+    white-space: nowrap; /* Evita que el texto se ajuste automáticamente y se mantenga en una línea */
+    overflow: hidden; /* Oculta el texto adicional si excede el ancho del botón */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) si el texto se recorta */
+  }
 
 .boton:hover{
     cursor: pointer;
