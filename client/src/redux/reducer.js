@@ -17,10 +17,17 @@ const initialState = {
   pokemons: [],
   pokemonDetail: [],
   pokemonFilter: [],
+  
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+
+
+
+
+
+
     case GET_POKEMONS:
       return {
         ...state,

@@ -123,15 +123,7 @@ const createPokemon = async (
     weight,
   });
 };
-// esto uso para que me muestre los datos de la tabla intermedia, pero ando buscando otro metodo por el momneto
-// {
-//   include: {
-//     attributes: ["name"],
-//     model: Type,
-//     through: {
-//       attributes: [],
-//     },
-//   },}
+
 const getDbPokemon = async () => {
   const pokemons = await Pokemon.findAll();
   return pokemons;
