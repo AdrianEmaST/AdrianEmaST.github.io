@@ -13,3 +13,9 @@
     overflow: hidden; /* Oculta el texto adicional si excede el ancho del botón */
     text-overflow: ellipsis; /* Agrega puntos suspensivos (...) si el texto se recorta */
   }
+
+  .button:hover{
+    cursor: pointer;
+    color: white;
+    background: #4ac4c2;
+}

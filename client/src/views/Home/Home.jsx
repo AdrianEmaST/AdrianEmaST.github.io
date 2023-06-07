@@ -41,6 +41,7 @@ const Home = () => {
     getData();
   }, [dispatch]);
     return (
+      <div className={style.container}>
         <div className={style.main}>
           
           {loading ? (
@@ -66,6 +67,7 @@ const Home = () => {
               </div>
             </div>
           )}
+        </div>
         </div>
       );
     };

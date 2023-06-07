@@ -5,18 +5,19 @@ import styles from "./Footer.module.css";
 import linkedinIcon from "../../icontypes/Linkedin.png";
 import twitterIcon from "../../icontypes/Twitter.png";
 import facebookIcon from "../../icontypes/Facebook.png";
+import AppPokemon from "../../img/PokemonApp.png"
 
 const Footer = () => {
-  const linkedinUrl = "https://www.linkedin.com/in/tu-linkedin";
-  const twitterUrl = "https://www.twitter.com/tu-twitter";
-  const facebookUrl = "https://www.facebook.com/tu-facebook";
-  const appName = "App Pokemon";
+  const linkedinUrl = "https://www.linkedin.com/in/desarrolloadrianjr/";
+  const twitterUrl = "https://www.twitter.com";
+  const facebookUrl = "https://www.facebook.com";
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className={styles.footer}>
       <div className={styles.iconContainer}>
-      <p className={styles.app}>{appName}</p>
+      
+      <img src={AppPokemon} alt="" className={styles.app} />
         <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
           <img className={styles.icon} src={linkedinIcon} alt="LinkedIn" />
         </a>

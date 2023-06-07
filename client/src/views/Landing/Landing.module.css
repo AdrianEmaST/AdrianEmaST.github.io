@@ -1,15 +1,44 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    justify-content: center;
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
-    background-image: url("../../img/Fondolanding3.jpg");
-    background-size: cover;
-    background-position: 0%;
-    background-repeat: no-repeat;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-image: url("../../img/Fondolanding3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.landing {
+  margin-bottom: -30px;
+  margin-right: 700px;
+}
+
+.landingBtn {
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #f44336;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   
-  
+}
+
+.landingBtn:hover {
+  background-color: #c62828;
+}
+
+.loadingApp {
+  font-size: 30px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-right: 700px;
+}

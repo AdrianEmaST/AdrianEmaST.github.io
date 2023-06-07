@@ -11,7 +11,7 @@ const Landing = () => {
         </Link>
       </div>
       <div className={s.loadingApp}>
-        <h4>Loading Pokemon App...</h4>
+        <h4>¡Ingresar a la App de Pokemon!</h4>
       </div>
     </div>
   );

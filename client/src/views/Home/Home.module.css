@@ -14,9 +14,27 @@
     overflow: hidden; /* Oculta el texto adicional si excede el ancho del botón */
     text-overflow: ellipsis; /* Agrega puntos suspensivos (...) si el texto se recorta */
 }
+.button:hover{
+    cursor: pointer;
+    color: white;
+    background: #4ac4c2;
+}
 
 .controls{
     display: flex;
     align-items: baseline;
     justify-content: center;
 }
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Establece una altura mínima igual al 100% del viewport */
+  }
+  
+  .main {
+    display: grid;
+    grid-template-rows: 1fr auto; /* El contenido ocupa el espacio disponible y el footer se mantiene en una fila separada */
+    min-height: 100vh;
+    }
+    
+ 

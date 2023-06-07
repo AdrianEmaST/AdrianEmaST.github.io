@@ -1,24 +1,25 @@
-/* NavBar.module.css */
-body {
-    overflow: hidden;
-  }
+
 .mainContainer {
     display: flex;
     justify-content: space-around;
     background-color: #489A74;
     padding: 20px;
     font-weight: bold;
+    align-items: center;
   }
   
   .mainContainer a {
     color: #333;
     text-decoration: none;
     font-size: 16px;
-    margin-right: 20px;
+    margin-right: -20px;
+    
   }
   
   .mainContainer a:hover {
     color: #666;
+    transform: scale(1.3); /* Hace que el icono aumente ligeramente de tamaño al colocar el cursor sobre el botón */
+    transition: transform 0.3s;
   }
   
   @media (max-width: 768px) {
@@ -31,4 +32,14 @@ body {
       margin-bottom: 10px;
       margin-right: 0;
     }
+  }
+
+  .nombre{
+    width: 150px;
+    height: 30px;
+  }
+
+  .nombre:hover {
+    transform: scale(1.3); /* Hace que el icono aumente ligeramente de tamaño al colocar el cursor sobre el botón */
+    transition: transform 0.3s;
   }

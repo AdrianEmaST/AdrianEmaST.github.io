@@ -24,9 +24,8 @@
     text-overflow: ellipsis; /* Agrega puntos suspensivos (...) si el texto se recorta */
   }
 
-.boton:hover{
+  .boton:hover{
     cursor: pointer;
     color: white;
-    background: #290035;
-
+    background: #4ac4c2;
 }

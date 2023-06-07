@@ -4,13 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { validation } from "./validation.js";
 import { getTypes } from "../../redux/actions.js";
 
-import Pokebola from "../../img/Pokebola.png"
 
 import style from "../Form/Form.module.css";
 
 import PokemonCreated from "../../components/PokemonCreated/PokemonCreated.jsx";
 import PokemonError from "../../components/PokemonError/PokemonError.jsx";
-import Footer from "../../components/Footer/Footer.jsx"
+import Footer from "../../components/Footer/Footer.jsx";
 
 import Normal from "../../icontypes/Normal.png";
 import Fire from "../../icontypes/Fire.png";
@@ -32,9 +31,6 @@ import Dark from "../../icontypes/Dark.png";
 import Fairy from "../../icontypes/Fairy.png";
 import Shadow from "../../icontypes/Shadow.png";
 import Unknown from "../../icontypes/Unknown.png";
-
-
-
 
 const Form = () => {
   const [pokemonCreated, setPokemonCreated] = useState(false);
@@ -68,7 +64,6 @@ const Form = () => {
     dispatch(getTypes());
   }, [dispatch]); // toda esta parte es de estados tanto para susbcripsion de estado de redux de los types como el useEffect para poder hacerles render tambien estan todo los estados locales que uso para hacer condicionles de render
 
-
   const handleTypeClick = (e, type) => {
     e.preventDefault();
     if (selectedTypes.length < 2) {
@@ -96,8 +91,8 @@ const Form = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    if(!form.type.length){
-      form.type.push("normal")
+    if (!form.type.length) {
+      form.type.push("normal");
     }
     console.log(form);
     axios
@@ -136,7 +131,6 @@ const Form = () => {
     });
   };
 
-
   const handleResetTypes = () => {
     resetForm();
   };
@@ -170,10 +164,11 @@ const Form = () => {
         <PokemonCreated setPokemonCreated={setPokemonCreated} />
       )}
       {pokemonError && <PokemonError setPokemonError={setPokemonError} />}
-      
-      
+
       <div
-        className={`${style.types} ${style.typeContainer} ${pokemonCreated || pokemonError ? `${style.filter}` : ""}`}
+        className={`${style.types} ${style.typeContainer} ${
+          pokemonCreated || pokemonError ? `${style.filter}` : ""
+        }`}
       >
         {types.map((type) => {
           return (
@@ -183,13 +178,18 @@ const Form = () => {
               className={style.optiones}
               value={type.name}
             >
-              <img  className={style.ico} src={typeIcons[type.name]} alt={type.name} />
+              <img
+                className={style.ico}
+                src={typeIcons[type.name]}
+                alt={type.name}
+              />
             </button>
           );
         })}
-{selectedTypes.length === 2 && selectedTypes[0] === selectedTypes[1] && (
-  <p>No puedes seleccionar el mismo tipo dos veces</p>
-)}
+        {selectedTypes.length === 2 &&
+          selectedTypes[0] === selectedTypes[1] && (
+            <p>No puedes seleccionar el mismo tipo dos veces</p>
+          )}
       </div>
       <button onClick={handleResetTypes} className={style.resetButton}>
         Reiniciar Tipos
@@ -281,7 +281,7 @@ const Form = () => {
             ></input>
             {error.weight && <p>{error.weight}</p>}
           </div>
-          
+
           <button className={style.button} type="submit">
             Submit
           </button>
@@ -289,8 +289,22 @@ const Form = () => {
         <div className={style.createcard}>
           <p>Name: {form.name}</p>
           <div>
-            <img className={style.icocard} src={typeIcons[form.type[0]] || "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png"} alt={form.type[0]} />
-            <img className={style.icocard} src={typeIcons[form.type[1]] || "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png"} alt={form.type[1]} />
+            <img
+              className={style.icocard}
+              src={
+                typeIcons[form.type[0]] ||
+                "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png"
+              }
+              alt={form.type[0]}
+            />
+            <img
+              className={style.icocard}
+              src={
+                typeIcons[form.type[1]] ||
+                "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png"
+              }
+              alt={form.type[1]}
+            />
           </div>
           <img
             alt="pokemon"

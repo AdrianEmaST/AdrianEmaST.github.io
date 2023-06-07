@@ -2,12 +2,14 @@ html {
   height: 100%;
   width: 100%;
   overflow-y: scroll;
+  
 }
 body {
   margin: 0;
   font-family: cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -18,8 +20,8 @@ body::-webkit-scrollbar {
   background-color: #414142;
 }
 body::-webkit-scrollbar-thumb {
-  background: #c73b31;
-  border-radius: 1em;
+  background: #338887;
+  border-radius: 2em;
 }
 body::-webkit-scrollbar-thumb:hover {
   background: #ffffff;
