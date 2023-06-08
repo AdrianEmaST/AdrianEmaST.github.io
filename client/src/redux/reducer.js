@@ -24,7 +24,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
 
 
-
+//Intentamos hacer que los filtros entren en un estado
 
 
 

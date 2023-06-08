@@ -4,7 +4,7 @@ import { getPokemons } from "../../redux/actions";
 
 import style from "../Home/Home.module.css";
 
-import Search from "../../components/Search/Search";
+
 import Loader from "../Loader/Loader";
 import SearchType from "../../components/SearchType/SearchType";
 import Paginado from "../../components/Paginado/Paginado"

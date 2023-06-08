@@ -15,7 +15,7 @@ export const DELETE_POKEMON = "DELETE_POKEMON";
 
 export const getPokemons = () => {
   return async function (dispatch) {
-    const apiData = await axios.get("http://localhost:3001/pokemons");
+    const apiData = await axios.get("http://localhost:3001/pokemons"); 
     const pokemons = apiData.data;
     dispatch({ type: GET_POKEMONS, payload: pokemons });
   };

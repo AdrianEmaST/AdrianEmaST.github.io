@@ -5,37 +5,42 @@
   width: 500px;
   height: 355px;
   background-repeat: no-repeat;
-  background-size: 100%;
-  -webkit-box-shadow: 0px 0px 49px 18px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 49px 18px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 49px 18px rgba(0, 0, 0, 0.75);
-  border-radius: 20px;
   animation: fadeIn 0.5s ease-in;
+  background-color: #D6EEE3;
+  border-radius: 10px;
+  border-color: rgba(33, 130, 85, 0.5); /* Cambia el valor del color con opacidad */
+  border-width: 2px;
+  border-style: solid;
 }
 
 .nameandtype {
   position: relative;
-  display: flex;
+  display: inline;
   justify-content: space-between;
-  width: 230px;
+  width: 20px;
   margin-right: 10px;
-  padding-bottom: 50px;
-  bottom: 125px;
-  left: 140px;
+  padding-bottom: 100px;
+  bottom:170px;
+  left: 100px;
   margin-left: 105px;
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
 }
 .image {
   width: 150px;
   display: flex;
-  margin-top: 40px;
+  margin-top: 30px;
   margin-left: 50px;
   min-width: 150px;
   height: 150px;
+  
 }
 .conteinattackhp {
   position: relative;
   bottom: 140px;
-  left: 100px;
+  left: 90px;
+  padding-bottom: 45px;
+  
 }
 .info {
   display: flex;
@@ -46,44 +51,6 @@
   justify-content: center;
   align-items: center;
   bottom: 130px;
-}
-
-.btn {
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border: none;
-  position: relative;
-  border-radius: 10px;
-  -webkit-box-shadow: 1px 1px 5px 0.2px #00000035;
-  box-shadow: 1px 1px 5px 0.2px #00000035;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
-  transition-delay: 0.2s;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: space-between;
-}
-.btn:hover {
-  width: 150px;
-  transition-delay: 0.2s;
-}
-.btn:hover > .paragraph {
-  visibility: visible;
-  opacity: 1;
-  -webkit-transition-delay: 0.4s;
-  transition-delay: 0.4s;
-}
-.btn:hover > .icon-wrapper .icon {
-  transform: scale(1.1);
-}
-.bnt:hover > .icon-wrapper .icon path {
-  stroke: black;
 }
 .paragraph {
   color: black;
@@ -147,4 +114,19 @@
   width: 80px; /* Ajusta el tamaño del icono según tus preferencias */
   height: 80px; /* Ajusta el tamaño del icono según tus preferencias */
   margin: 0 5px; /* Ajusta el espacio entre los iconos según tus preferencias */
+}
+
+.footer{
+  margin-top: 114px;
+}
+
+.icon{
+  height: 60px;
+  width: 60px;
+  margin-top: 30px;
+}
+
+.name{
+  font-size: 30px;
+  margin-left: -30px;
 }

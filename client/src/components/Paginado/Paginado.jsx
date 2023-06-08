@@ -12,9 +12,8 @@ const Paginado = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [searchedPokemon, setSearchedPokemon] = useState(null); // Nuevo estado para almacenar el resultado de la búsqueda
-
-  const pokemons = useSelector((state) => state.pokemonFilter); //
+  const [searchedPokemon, setSearchedPokemon] = useState(null);
+  const pokemons = useSelector((state) => state.pokemonFilter);
   const itemsPerPage = 12;
   const totalPages = Math.ceil(pokemons.length / itemsPerPage);
 
@@ -40,6 +39,12 @@ const Paginado = () => {
     dispatch(getPokemons()).then(() => setIsLoading(false));
   }, [dispatch]);
 
+  const handleReload = () => {
+    setIsLoading(true);
+    setCurrentPage(1);
+    dispatch(getPokemons()).then(() => setIsLoading(false));
+  };
+
   return (
     <div className={s.paginadoContainer}>
       {isLoading ? (
@@ -49,10 +54,17 @@ const Paginado = () => {
         </div>
       ) : (
         <>
-          {searchedPokemon ? ( // Mostrar el componente SearchResult si se realiza una búsqueda exitosa
+          {searchedPokemon ? (
             <SearchResult pokemon={searchedPokemon} />
-          ) : (
+          ) : currentPokemons.length > 0 ? (
             <CardsContainer pokemons={currentPokemons} />
+          ) : (
+            <div className={s.noResults}>
+              <p>No se encontró el Pokémon.</p>
+              <button className={s.reloadButton} onClick={handleReload}>
+                Recargar
+              </button>
+            </div>
           )}
 
           <div className={s.paginado}>
@@ -62,14 +74,14 @@ const Paginado = () => {
             <button
               className={s.paginado__button}
               onClick={handlePreviousPage}
-              disabled={currentPage <= 1} // Deshabilitar el botón si currentPage es igual o menor que 1
+              disabled={currentPage <= 1}
             >
               Previous
             </button>
             <button
               className={s.paginado__button}
               onClick={handleNextPage}
-              disabled={currentPage >= totalPages} // Deshabilitar el botón si currentPage es igual o mayor que totalPages
+              disabled={currentPage >= totalPages}
             >
               Next
             </button>

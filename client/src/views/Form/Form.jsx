@@ -3,13 +3,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { validation } from "./validation.js";
 import { getTypes } from "../../redux/actions.js";
+import Footer from "../../components/Footer/Footer.jsx"
 
+import Pokebola from "../../img/Pokebola.png";
 
 import style from "../Form/Form.module.css";
-
-import PokemonCreated from "../../components/PokemonCreated/PokemonCreated.jsx";
-import PokemonError from "../../components/PokemonError/PokemonError.jsx";
-import Footer from "../../components/Footer/Footer.jsx";
 
 import Normal from "../../icontypes/Normal.png";
 import Fire from "../../icontypes/Fire.png";
@@ -33,8 +31,8 @@ import Shadow from "../../icontypes/Shadow.png";
 import Unknown from "../../icontypes/Unknown.png";
 
 const Form = () => {
-  const [pokemonCreated, setPokemonCreated] = useState(false);
-  const [pokemonError, setPokemonError] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [form, setForm] = useState({
     name: "",
@@ -60,15 +58,15 @@ const Form = () => {
   });
   const types = useSelector((state) => state.infoType);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getTypes());
-  }, [dispatch]); // toda esta parte es de estados tanto para susbcripsion de estado de redux de los types como el useEffect para poder hacerles render tambien estan todo los estados locales que uso para hacer condicionles de render
+  }, [dispatch]);
 
   const handleTypeClick = (e, type) => {
     e.preventDefault();
     if (selectedTypes.length < 2) {
       if (selectedTypes.includes(type)) {
-        // Si el tipo ya está seleccionado, muestra un mensaje de error
         alert("No puedes seleccionar el mismo tipo dos veces");
       } else {
         setSelectedTypes([...selectedTypes, type]);
@@ -83,9 +81,9 @@ const Form = () => {
     let property = event.target.name;
     let value = event.target.value;
 
-    if (property === "name") value = value.toLocaleLowerCase(); // esta parte la hago asi para que cada vez que la propiedad que venga del form sea "name" la mande en minusculas pare evitar problemas con el backend y base de datos
+    if (property === "name") value = value.toLocaleLowerCase();
 
-    setError(validation(property, value)); // le mando property y value por separado a validation para poder hacer render condicionales  a los errores y asi no se actulicen todo los errores al escribir
+    setError(validation(property, value));
     setForm({ ...form, [property]: value });
   };
 
@@ -98,10 +96,12 @@ const Form = () => {
     axios
       .post("http://localhost:3001/pokemons", form)
       .then((res) => {
-        setPokemonCreated(true);
+        setSuccessMessage(true);
+        resetForm();
       })
       .catch((err) => {
-        setPokemonError(true);
+        setErrorMessage(true);
+        resetForm();
       });
   };
 
@@ -160,14 +160,26 @@ const Form = () => {
 
   return (
     <div className={style.animated}>
-      {pokemonCreated && (
-        <PokemonCreated setPokemonCreated={setPokemonCreated} />
+      {successMessage && (
+        <div>
+          <p>El pokemon se creó correctamente.</p>
+          <button onClick={() => setSuccessMessage(false)}>
+            Reiniciar formulario
+          </button>
+        </div>
       )}
-      {pokemonError && <PokemonError setPokemonError={setPokemonError} />}
+      {errorMessage && (
+        <div>
+          <p>El pokemon no se pudo crear.</p>
+          <button onClick={() => setErrorMessage(false)}>
+            Reiniciar formulario
+          </button>
+        </div>
+      )}
 
       <div
         className={`${style.types} ${style.typeContainer} ${
-          pokemonCreated || pokemonError ? `${style.filter}` : ""
+          successMessage || errorMessage ? `${style.filter}` : ""
         }`}
       >
         {types.map((type) => {
@@ -192,11 +204,11 @@ const Form = () => {
           )}
       </div>
       <button onClick={handleResetTypes} className={style.resetButton}>
-        Reiniciar Tipos
+        Reiniciar formulario
       </button>
       <form
         className={`${style.main} ${
-          pokemonCreated || pokemonError ? `${style.filter}` : ""
+          successMessage || errorMessage ? `${style.filter}` : ""
         }`}
         onSubmit={submitHandler}
       >
@@ -293,7 +305,7 @@ const Form = () => {
               className={style.icocard}
               src={
                 typeIcons[form.type[0]] ||
-                "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png"
+                Pokebola
               }
               alt={form.type[0]}
             />
@@ -301,7 +313,7 @@ const Form = () => {
               className={style.icocard}
               src={
                 typeIcons[form.type[1]] ||
-                "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png"
+                Pokebola
               }
               alt={form.type[1]}
             />
@@ -312,7 +324,7 @@ const Form = () => {
             src={
               form.img
                 ? form.img
-                : "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png" //ternario que indica que si no existe form.img esta sera la imagen default del pokemon
+                : Pokebola //ternario que indica que si no existe form.img esta sera la imagen default del pokemon
             }
           ></img>
           <div className={style.info}>

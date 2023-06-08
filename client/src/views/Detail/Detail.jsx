@@ -29,6 +29,7 @@ import Unknown from "../../icontypes/Unknown.png";
 import EditPokemon from "../../components/EditPokemon/EditPokemon";
 import Deletedpokemon from "../../components/DeletedPokemon/DeletedPokemon";
 import Loader from "../Loader/Loader";
+import Footer from "../../components/Footer/Footer";
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -144,6 +145,7 @@ const Detail = () => {
       {edit && <EditPokemon setEdit={setEdit} id={id} img={pokemon.img} />}
     </div>
       )}
+      <div className={style.footer}><Footer /></div>
     </div>
   );
 };
