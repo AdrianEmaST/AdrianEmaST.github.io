@@ -6,7 +6,9 @@ module.exports = (sequelize) => {
   sequelize.define('Pokemon', {
     id: {
       type: DataTypes.UUID,
+      //valor único generado de manera aleatoria
       defaultValue: DataTypes.UUIDV4,
+      //tmb
       primaryKey: true,
     },
     name: {
@@ -16,13 +18,15 @@ module.exports = (sequelize) => {
       validate: {
         len: [1,20]
       },
+      //rango de 1 a 20 caracteres
     },
     img: {
       type: DataTypes.STRING,
-      defaultValue: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png",
+      defaultValue: "https://w7.pngwing.com/pngs/248/960/png-transparent-pikachu-pokemon-go-silhouette-drawing-pikachu-dog-like-mammal-fictional-character-black.png",
     },
     type: {
       type: DataTypes.ARRAY(DataTypes.STRING),
+      //puede contener múltiples valores de tipo string almacenados en forma de arreglo
       defaultValue: ["normal"],
     },
     hp:{
@@ -32,6 +36,7 @@ module.exports = (sequelize) => {
         min: 1,
         max: 255
       },
+      //tmb rango
     },
     attack: {
       type: DataTypes.INTEGER,
@@ -40,6 +45,7 @@ module.exports = (sequelize) => {
         min: 1,
         max: 255
       }
+      //tmb rango
     },
     defense: {
       type: DataTypes.INTEGER,
@@ -48,6 +54,7 @@ module.exports = (sequelize) => {
         min: 1,
         max: 255
       }
+      //tmb rango
     },
     speed: {
       type: DataTypes.INTEGER,
@@ -75,24 +82,3 @@ module.exports = (sequelize) => {
     },
   });
 };
-
-
-
-
-
-	// {
-	// 	"id": 1,
-	// 	"name": "bulbasaur",
-	// 	"img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-	// 	"type": [
-	// 		"grass",
-	// 		"poison"
-	// 	],
-	// 	"health": 45,
-	// 	"attack": 49,
-	// 	"defense": 49,
-	// 	"speed": 45,
-	// 	"height": 7,
-	// 	"weight": 69
-	// },
-	

@@ -7,15 +7,13 @@ const {
   updatePokemonDb,
 } = require("../Handler/pokemonHandler.js");
 
-const validate = require("../Handler/Validate.js");
-
 const router = Router();
 
 router.get("/", searchPokemonsHandler);
 
 router.get("/:id", searchPokemonIdHandler);
 
-router.post("/", validate, createPokemonHandler);
+router.post("/", createPokemonHandler);
 
 router.put("/:id", updatePokemonDb);
 

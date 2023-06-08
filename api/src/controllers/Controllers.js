@@ -3,6 +3,7 @@ const { Sequelize } = require("sequelize");
 const axios = require("axios");
 const urlApiPokemon = `https://pokeapi.co/api/v2/pokemon`;
 const urlApiTypes = `https://pokeapi.co/api/v2/type`;
+//const pokebola = require("../../asset/Pokebola.png")
 
 const getApiInfo = async () => {
   //funcion asincrona ?limit=2
@@ -32,6 +33,7 @@ const getApiInfo = async () => {
     );
   return await apiInfo; //espera a que apiInfo reciba toda la info y cuando termina getApiInfo() devuelve esa const si la ejecutamos
 };
+
 const getIdApi = async (id) => {
   try {
     const apiUrl = await axios.get(urlApiPokemon + `/` + id);
@@ -52,6 +54,8 @@ const getIdApi = async (id) => {
     return { error: "Pokemon not found" };
   }
 };
+
+
 const getNameApi = async (name) => {
   try {
     const apiUrl = await axios.get(urlApiPokemon + `/` + name);
@@ -70,6 +74,8 @@ const getNameApi = async (name) => {
     return { error: "Pokemon not found" };
   }
 };
+
+
 const getTypesApi = async () => {
   const response = await axios.get(urlApiTypes);
   const types = response.data.results;
@@ -78,15 +84,16 @@ const getTypesApi = async () => {
     let existingType = await Type.findOne({ where: { name: type.name } }); // lo que hago aca es buscar si ya tengo un type con tal nombre lo guardo en vez de crear otro para evitar pisar el id
     if (existingType) {
       typeNames.push(existingType);
-    } /*else {
+    } else {
       const newType = await Type.create({
         name: type.name,
       });
       typeNames.push(newType);
-    }*/
+    }
   }
   return typeNames;
 };
+
 
 const serchType = async (types) => {
   const typ = await Type.findAll({
@@ -113,7 +120,7 @@ const createPokemon = async (
     name,
     img: img
       ? img
-      : "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png",
+      : "https://w7.pngwing.com/pngs/248/960/png-transparent-pikachu-pokemon-go-silhouette-drawing-pikachu-dog-like-mammal-fictional-character-black.png",
     type: type.length ? type : ["normal"],
     hp,
     attack,
@@ -124,10 +131,13 @@ const createPokemon = async (
   });
 };
 
+
 const getDbPokemon = async () => {
   const pokemons = await Pokemon.findAll();
   return pokemons;
 };
+
+
 const getId = async (id) => {
   try {
     const pokemons = await Pokemon.findOne({
@@ -140,6 +150,7 @@ const getId = async (id) => {
     return { error: "Pokemon not found" };
   }
 };
+
 const getName = async (name) => {
   try {
     const pokemon = await Pokemon.findOne({
@@ -155,11 +166,15 @@ const getName = async (name) => {
     return { error: "Pokemon not found" };
   }
 };
+
 const getPokemons = async () => {
   const api = await getApiInfo(); // una funcion que espera que se resuelve tanto el obtener la informacio de la api como de la base de datos para devolverlos concatenados
   const db = await getDbPokemon();
-  return api.concat(db);
+  return db.concat(api);
 };
+
+//Probamos magia
+
 const deletePokemon = async (id) => {
   try {
     const pokemon = await Pokemon.findByPk(id);
@@ -172,6 +187,8 @@ const deletePokemon = async (id) => {
     return { error: "Pokemon not found" };
   }
 };
+
+
 const updatePokemon = async (
   id,
   name,
