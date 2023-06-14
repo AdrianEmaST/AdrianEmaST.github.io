@@ -21,7 +21,7 @@ const Home = () => {
   useEffect(() => {
     const getData = async () => {
       setLoading(true);
-      await dispatch(getPokemons());
+      dispatch(getPokemons());
       setLoading(false);
     };
     getData();
@@ -35,7 +35,7 @@ const Home = () => {
   useEffect(() => {
     const getData = async () => {
       setLoading(true);
-      await dispatch(getPokemons());
+      dispatch(getPokemons());
       setLoading(false);
     };
     getData();

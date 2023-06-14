@@ -17,17 +17,10 @@ const initialState = {
   pokemons: [],
   pokemonDetail: [],
   pokemonFilter: [],
-  
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-
-
-//Intentamos hacer que los filtros entren en un estado
-
-
-
     case GET_POKEMONS:
       return {
         ...state,
@@ -70,40 +63,43 @@ const reducer = (state = initialState, action) => {
         ...state,
         pokemonFilter: state.pokemons.filter((p) => typeof p.id === "number"),
       };
-    case ORDER_BY_ATTACK: 
-      const orderAttack =
-        action.payload === "asc"
-          ? state.pokemons.slice().sort((a, b) => {
-              return b.attack - a.attack;
+    case ORDER_BY_ATTACK:
+      const filteredAndSortedByAttack =
+        state.pokemonFilter.length > 0
+          ? state.pokemonFilter.slice().sort((a, b) => {
+              return action.payload === "asc"
+                ? a.attack - b.attack
+                : b.attack - a.attack;
             })
           : state.pokemons.slice().sort((a, b) => {
-              return a.attack - b.attack;
+              return action.payload === "asc"
+                ? a.attack - b.attack
+                : b.attack - a.attack;
             });
       return {
         ...state,
-        pokemonFilter: orderAttack,
+        pokemonFilter: filteredAndSortedByAttack,
       };
-
     case ORDER_BY_NAME:
-      const order =
-        action.payload === "asc"
-          ? state.pokemons.slice().sort((a, b) => {
+      const filteredAndSortedByName =
+        state.pokemonFilter.length > 0
+          ? state.pokemonFilter.slice().sort((a, b) => {
               let first = a.name.toLowerCase();
               let second = b.name.toLowerCase();
-              if (first > second) return 1;
-              if (first < second) return -1;
+              if (first > second) return action.payload === "asc" ? 1 : -1;
+              if (first < second) return action.payload === "asc" ? -1 : 1;
               return 0;
             })
           : state.pokemons.slice().sort((a, b) => {
               let first = a.name.toLowerCase();
               let second = b.name.toLowerCase();
-              if (first > second) return -1;
-              if (first < second) return 1;
+              if (first > second) return action.payload === "asc" ? 1 : -1;
+              if (first < second) return action.payload === "asc" ? -1 : 1;
               return 0;
             });
       return {
         ...state,
-        pokemonFilter: order,
+        pokemonFilter: filteredAndSortedByName,
       };
     case DELETE_POKEMON:
       return {
