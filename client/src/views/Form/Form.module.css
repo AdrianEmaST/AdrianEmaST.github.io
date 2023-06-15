@@ -14,7 +14,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-top: -80px;
+  margin-top: -40px;
 }
 .form {
   padding: 20px;
@@ -68,6 +68,7 @@
   overflow: hidden; /* Oculta el texto adicional si excede el ancho del botón */
   text-overflow: ellipsis; /* Agrega puntos suspensivos (...) si el texto se recorta */
   padding: 10px 20px;
+  margin-bottom: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -100,7 +101,7 @@
 }
 
 .icocard {
-  width: 60px;
+  width: 40px;
   height: 40px;
   margin: 10px;
   border-radius: 50%;
@@ -180,4 +181,48 @@
   cursor: pointer;
   color: white;
   background: #4ac4c2;
+}
+
+.buttonMessage{
+  margin-right: 10px;
+  margin: 5px;
+  margin-bottom: -50px;
+  width: 200px;
+  height: 40px;
+  background: #2b7271;
+  border-radius: 5px;
+  outline: none;
+  transition-duration: 0.4s;
+  color: white; /* Cambia el color del texto a blanco */
+  white-space: nowrap; /* Evita que el texto se ajuste automáticamente y se mantenga en una línea */
+  overflow: hidden; /* Oculta el texto adicional si excede el ancho del botón */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos (...) si el texto se recorta */
+}
+
+.buttonMessage:hover {
+  cursor: pointer;
+  color: white;
+  background: #4ac4c2;
+}
+
+.containerCorrecto {
+  background-color: #c7f0cc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.pCorrecto {
+  color: green;
+  font-weight: bold;
+}
+
+.containerIncorrecto {
+  background-color: #f0cccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.pIncorrecto {
+  color: red;
+  font-weight: bold;
 }

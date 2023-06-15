@@ -75,3 +75,8 @@
   height: 30px; /* Ajusta el tamaño del icono según tus preferencias */
   margin: 0px 5px 5px 5px; /* Ajusta el espacio entre los iconos según tus preferencias */
 }
+
+.name{
+  text-decoration: none; /* Eliminar la decoración de subrayado */
+  color: #103b3a; /* Heredar el color del texto del padre */
+}

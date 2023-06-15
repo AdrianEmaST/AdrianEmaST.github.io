@@ -1,10 +1,9 @@
-import { useSelector } from "react-redux";
 import Card from "../Card/Card";
-import s from "./CardsContainer.module.css"
+import style from "./CardsContainer.module.css";
 
 const CardsContainer = ({ pokemons }) => {
   return (
-    <div className={s.cardsContainer}>
+    <div className={style.cardsContainer}>
       {pokemons.map((p) => (
         <Card
           key={p.id}

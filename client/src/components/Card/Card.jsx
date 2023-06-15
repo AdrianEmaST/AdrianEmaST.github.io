@@ -1,30 +1,28 @@
 import { Link } from "react-router-dom";
+import style from "./Card.module.css";
 
-import Normal from "../../icontypes/Normal.png";
-import Fire from "../../icontypes/Fire.png";
-import Water from "../../icontypes/Water.png";
-import Fighting from "../../icontypes/Fighting.png";
-import Flying from "../../icontypes/Flying.png";
-import Poison from "../../icontypes/Poison.png";
-import Ground from "../../icontypes/Ground.png";
-import Rock from "../../icontypes/Rock.png";
 import Bug from "../../icontypes/Bug.png";
-import Ghost from "../../icontypes/Ghost.png";
-import Steel from "../../icontypes/Steel.png";
-import Grass from "../../icontypes/Grass.png";
-import Electric from "../../icontypes/Electric.png";
-import Psychic from "../../icontypes/Psychic.png";
-import Ice from "../../icontypes/Ice.png";
-import Dragon from "../../icontypes/Dragon.png";
 import Dark from "../../icontypes/Dark.png";
+import Dragon from "../../icontypes/Dragon.png";
+import Electric from "../../icontypes/Electric.png";
 import Fairy from "../../icontypes/Fairy.png";
+import Fighting from "../../icontypes/Fighting.png";
+import Fire from "../../icontypes/Fire.png";
+import Flying from "../../icontypes/Flying.png";
+import Ghost from "../../icontypes/Ghost.png";
+import Grass from "../../icontypes/Grass.png";
+import Ground from "../../icontypes/Ground.png";
+import Ice from "../../icontypes/Ice.png";
+import Normal from "../../icontypes/Normal.png";
+import Poison from "../../icontypes/Poison.png";
+import Psychic from "../../icontypes/Psychic.png";
+import Rock from "../../icontypes/Rock.png";
 import Shadow from "../../icontypes/Shadow.png";
+import Steel from "../../icontypes/Steel.png";
 import Unknown from "../../icontypes/Unknown.png";
-
-import s from "./Card.module.css";
+import Water from "../../icontypes/Water.png";
 
 const Card = (props) => {
-  const { image, name, types, img } = props;
 
   const getTypeIcon = (type) => {
     switch (type) {
@@ -66,28 +64,27 @@ const Card = (props) => {
         return Steel;
       case "unknown":
         return Unknown;
-      // Agrega más casos para los demás tipos de Pokémon
       default:
-        return Normal; // Opcional: puedes establecer un icono de tipo predeterminado o null para los tipos desconocidos
+        return Normal;
     }
   };
 
   return (
-    <div className={s.card}>
-      <img src={props.image || props.img} alt={props.name} />
-      <Link to={`/detail/${props.id}`}><p className={s.name}>{name}</p></Link>
-      <div className={s.types}>
-      
-        {types.map((type, index) => (
+    <div className={style.card}>
+      <img src={props.image} alt={props.name} />
+      <Link to={`/detail/${props.id}`}>
+        <p className={style.name}>{props.name}</p>
+      </Link>
+      <div className={style.types}>
+        {props.types.map((type, index) => (
           <img
             key={index}
-            className={s.typeIcon}
+            className={style.typeIcon}
             src={getTypeIcon(type)}
             alt={type}
             title={type}
           />
         ))}
-        
       </div>
     </div>
   );

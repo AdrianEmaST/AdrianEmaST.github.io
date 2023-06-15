@@ -27,10 +27,13 @@ const reducer = (state = initialState, action) => {
         pokemons: action.payload,
         pokemonFilter: action.payload,
       };
+
     case GET_POKEMONID:
       return { ...state, pokemonDetail: action.payload };
+
     case GET_TYPES:
       return { ...state, infoType: action.payload };
+
     case GET_POKEMON_NAME:
       const filteredPokemon = state.pokemons.filter(
         (e) => e.name === action.payload
@@ -39,6 +42,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         pokemonFilter: filteredPokemon.length > 0 ? filteredPokemon : [],
       };
+
     case FILTER_TYPE:
       return {
         ...state,
@@ -46,6 +50,7 @@ const reducer = (state = initialState, action) => {
           e.type.includes(action.payload)
         ),
       };
+
     case FILTER_TYPE_TWO:
       const { firstType, secondType } = action.payload;
       const filteredPokemonsType = state.pokemons.filter(
@@ -58,11 +63,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         pokemonFilter: state.pokemons.filter((p) => typeof p.id === "string"),
       };
+
     case FILTER_API:
       return {
         ...state,
         pokemonFilter: state.pokemons.filter((p) => typeof p.id === "number"),
       };
+//Si state.pokemonFilter tiene elementos, se ordena ese array, de lo contrario, se ordena el array original de state.pokemons.
     case ORDER_BY_ATTACK:
       const filteredAndSortedByAttack =
         state.pokemonFilter.length > 0
@@ -80,6 +87,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         pokemonFilter: filteredAndSortedByAttack,
       };
+    //Idem
     case ORDER_BY_NAME:
       const filteredAndSortedByName =
         state.pokemonFilter.length > 0

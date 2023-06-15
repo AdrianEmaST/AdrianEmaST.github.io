@@ -1,4 +1,5 @@
 export const validation = (property, value) => {
+    //Inicializamos el error vacio para luego vcerificar el valor de la propiedad para determinar q validacion hacer.
     let error = {};
     if (property === "name" && !value) {
       error.name = "Debes ingresar un nombre";

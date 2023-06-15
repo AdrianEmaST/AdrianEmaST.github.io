@@ -3,37 +3,63 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { validation } from "./validation.js";
 import { getTypes } from "../../redux/actions.js";
+import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer.jsx"
 
 import Pokebola from "../../img/Pokebola.png";
 
 import style from "../Form/Form.module.css";
 
-import Normal from "../../icontypes/Normal.png";
-import Fire from "../../icontypes/Fire.png";
-import Water from "../../icontypes/Water.png";
-import Fighting from "../../icontypes/Fighting.png";
-import Flying from "../../icontypes/Flying.png";
-import Poison from "../../icontypes/Poison.png";
-import Ground from "../../icontypes/Ground.png";
-import Rock from "../../icontypes/Rock.png";
 import Bug from "../../icontypes/Bug.png";
-import Ghost from "../../icontypes/Ghost.png";
-import Steel from "../../icontypes/Steel.png";
-import Grass from "../../icontypes/Grass.png";
-import Electric from "../../icontypes/Electric.png";
-import Psychic from "../../icontypes/Psychic.png";
-import Ice from "../../icontypes/Ice.png";
-import Dragon from "../../icontypes/Dragon.png";
 import Dark from "../../icontypes/Dark.png";
+import Dragon from "../../icontypes/Dragon.png";
+import Electric from "../../icontypes/Electric.png";
 import Fairy from "../../icontypes/Fairy.png";
+import Fighting from "../../icontypes/Fighting.png";
+import Fire from "../../icontypes/Fire.png";
+import Flying from "../../icontypes/Flying.png";
+import Ghost from "../../icontypes/Ghost.png";
+import Grass from "../../icontypes/Grass.png";
+import Ground from "../../icontypes/Ground.png";
+import Ice from "../../icontypes/Ice.png";
+import Normal from "../../icontypes/Normal.png";
+import Poison from "../../icontypes/Poison.png";
+import Psychic from "../../icontypes/Psychic.png";
+import Rock from "../../icontypes/Rock.png";
 import Shadow from "../../icontypes/Shadow.png";
+import Steel from "../../icontypes/Steel.png";
 import Unknown from "../../icontypes/Unknown.png";
+import Water from "../../icontypes/Water.png";
 
 const Form = () => {
+
+  const typeIcons = {
+    normal: Normal,
+    fighting: Fighting,
+    flying: Flying,
+    poison: Poison,
+    ground: Ground,
+    rock: Rock,
+    bug: Bug,
+    ghost: Ghost,
+    steel: Steel,
+    fire: Fire,
+    water: Water,
+    grass: Grass,
+    electric: Electric,
+    psychic: Psychic,
+    ice: Ice,
+    dragon: Dragon,
+    dark: Dark,
+    fairy: Fairy,
+    unknown: Unknown,
+    shadow: Shadow,
+  };
+
   const [successMessage, setSuccessMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
   const [selectedTypes, setSelectedTypes] = useState([]);
+
   const [form, setForm] = useState({
     name: "",
     img: "",
@@ -45,6 +71,7 @@ const Form = () => {
     height: "",
     weight: "",
   });
+
   const [error, setError] = useState({
     name: "",
     img: "",
@@ -56,13 +83,16 @@ const Form = () => {
     height: "",
     weight: "",
   });
+
   const types = useSelector((state) => state.infoType);
   const dispatch = useDispatch();
 
+  //obtenemos los type.
   useEffect(() => {
     dispatch(getTypes());
   }, [dispatch]);
 
+  //lógica de selección de tipos y actualiza el estado, errores, ect.
   const handleTypeClick = (e, type) => {
     e.preventDefault();
     if (selectedTypes.length < 2) {
@@ -77,6 +107,7 @@ const Form = () => {
     }
   };
 
+  //Al cambiarse el valor del campo actualiza el estado form y error, con la validaciones modularizadas.
   const changeHandler = (event) => {
     let property = event.target.name;
     let value = event.target.value;
@@ -87,6 +118,7 @@ const Form = () => {
     setForm({ ...form, [property]: value });
   };
 
+  //llama cuando se envía el formulario, hacemos el post con axios para enviar los datos del form. Actualiza el estado succes o error
   const submitHandler = (event) => {
     event.preventDefault();
     if (!form.type.length) {
@@ -105,6 +137,7 @@ const Form = () => {
       });
   };
 
+  //Lo usamos para reiniciar el formulario, actualizamos el estado.
   const resetForm = () => {
     setSelectedTypes([]);
     setForm({
@@ -130,49 +163,30 @@ const Form = () => {
       weight: "",
     });
   };
-
+  //Restablecemos los type
   const handleResetTypes = () => {
     resetForm();
   };
 
-  const typeIcons = {
-    normal: Normal,
-    fighting: Fighting,
-    flying: Flying,
-    poison: Poison,
-    ground: Ground,
-    rock: Rock,
-    bug: Bug,
-    ghost: Ghost,
-    steel: Steel,
-    fire: Fire,
-    water: Water,
-    grass: Grass,
-    electric: Electric,
-    psychic: Psychic,
-    ice: Ice,
-    dragon: Dragon,
-    dark: Dark,
-    fairy: Fairy,
-    unknown: Unknown,
-    shadow: Shadow,
-  };
+  
 
   return (
     <div className={style.animated}>
+     
       {successMessage && (
-        <div>
-          <p>El pokemon se creó correctamente.</p>
-          <button onClick={() => setSuccessMessage(false)}>
-            Reiniciar formulario
-          </button>
+        <div className={style.containerCorrecto}>
+          <p className={style.pCorrecto}>El pokemon se creó correctamente.</p>
+          <Link to="/home"><button className={style.buttonMessage} onClick={() => setSuccessMessage(false)}>
+            Ir a Home
+          </button></Link>
+          
         </div>
       )}
       {errorMessage && (
-        <div>
-          <p>El pokemon no se pudo crear.</p>
-          <button onClick={() => setErrorMessage(false)}>
-            Reiniciar formulario
+        <div className={style.containerIncorrecto}>
+          <p className={style.pIncorrecto}>El pokemon no se pudo crear.</p>
+          <button className={style.buttonMessage} onClick={() => setErrorMessage(false)}>
+            Volver a intentarlo
           </button>
         </div>
       )}

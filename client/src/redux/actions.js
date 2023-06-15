@@ -12,10 +12,9 @@ export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const DELETE_POKEMON = "DELETE_POKEMON";
 
-
 export const getPokemons = () => {
   return async function (dispatch) {
-    const apiData = await axios.get("http://localhost:3001/pokemons"); 
+    const apiData = await axios.get("http://localhost:3001/pokemons");
     const pokemons = apiData.data;
     dispatch({ type: GET_POKEMONS, payload: pokemons });
   };
@@ -44,7 +43,6 @@ export const getTypes = () => {
     dispatch({ type: GET_TYPES, payload: type });
   };
 };
-
 
 export const filterType = (type) => {
   return {
@@ -88,4 +86,4 @@ export const deletedPokemon = (id) => {
     const pokemon = apiData.data;
     dispatch({ type: DELETE_POKEMON, payload: pokemon });
   };
-}
+};
